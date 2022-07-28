@@ -11,29 +11,33 @@ git clone git@github.com:daviromao/pystore.git
 
 - Setup containers:
 ```
-docker-compose up --build
+docker-compose up -d
 ```
 
 - Run the migrations:
 ```
-docker-compose exec web python manage.py migrate
+python manage.py migrate
 ```
 
 - Run the tests:
 ```
-docker-compose exec web pytest
+pytest
 # algumas opções:
-docker-compose exec web pytest -x --cov --cov-report=html
+pytest -x --cov --cov-report=html
 ```
 
 - Use the fixture `products.json` to load a sample data. To insert the products in db:
 ```
-docker-compose exec web python manage.py loaddata products
+python manage.py loaddata products
 ```
 
 - Create a superuser to get acess in admin page:
 ```
-docker-compose exec web python manage.py createsuperuser
+python manage.py createsuperuser
+```
+- Rode o server do django
+```
+python manage.py runserver
 ```
 
 Por fim, acesse o site neste link: [http://localhost:8000/](http://localhost:8000/)
